@@ -1,14 +1,14 @@
 #Dice Distribution
 #This code takes a set of dice and calculates all potential results and returns a distribution in array form.
 
-nD = 3 #number of dice
-dS = 4 #dice size
-mod = 4 #additional modifier
+#number of dice = nD
+#dice size = dS
+#additional modifier = mod
 
-def diceIt(dR, n):
+def diceIt(dR, dS, n):
     if dR[n] == dS:
         dR[n] = 1
-        dR = diceIt(dR, n+1)
+        dR = diceIt(dR, dS, n+1)
         n -= 1
     else:
         dR[n] += 1
@@ -22,18 +22,22 @@ def diceDist(nD, dS, mod):
             dR.append(1)
 
     minD = sum(dR)+mod #minimum dice roll
-    maxD = (dS*nD)+mod
+    maxD = (dS*nD)+mod #maximum dice roll
 
     dDist = [0] #Initializes array for the probability distribution
     for x in range(maxD-minD):
         dDist.append(0)
 
     n = 0
+    b = 1
+    dResultArr = []
+
     while sum(dR) <= dS*nD:
         dDist[sum(dR)-nD] += 1
+        dResultArr.append(sum(dR)+mod)
         if sum(dR) < dS*nD:
-            diceIt(dR, n)
+            diceIt(dR, dS, n)
             continue
         else:
             break
-    return(dDist)
+    return(dDist, dResultArr)
