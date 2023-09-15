@@ -2,7 +2,7 @@ import DiceDist as dd
 import numpy as np
 import pandas as pd
 
-csvPath = "C:/Users/clays/Documents/GitHub/Personal-Projects/TTRPG_Code/Damage Increases - "
+csvPath = "C:/Users/clays/Documents/GitHub/Personal-Projects/TTRPG_Code/Damage Distributions - Monster/Damage Increases - "
 csvNames = ["Low", "Moderate", "Hard", "Extreme"]
 length = len(csvNames)
 cNames = ["Level", "nD", "dS", "mod", "Mean", "Min", "Max", "Range", "Std", "-1StD", "+1StD", "-2Std", "+2Std", "Idk", "2Idk"]

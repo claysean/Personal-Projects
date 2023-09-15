@@ -14,6 +14,7 @@ def diceIt(dR, dS, n):
         dR[n] += 1
     return(dR)
 
+#Takes number of dice, dice size and modifier and creates a distribution.
 def diceDist(nD, dS, mod):
     for x in range(nD):
         if x == 0:
